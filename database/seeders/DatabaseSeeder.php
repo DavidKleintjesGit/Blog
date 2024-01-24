@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Post;
 use Illuminate\Database\Seeder;
+use App\Models\Category;
+use App\Models\Comment;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +15,44 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        Category::create([
+            'name' => 'PHP',
+            'slug' => 'php'
+        ]);
+        Category::create([
+            'name' => 'Javascript',
+            'slug' => 'javascript'
+        ]);
+        Category::create([
+            'name' => 'Python',
+            'slug' => 'python'
+        ]);
+        Category::create([
+            'name' => 'Java',
+            'slug' => 'java'
+        ]);
+        Category::create([
+            'name' => 'HTML',
+            'slug' => 'html'
+        ]);
+        Category::create([
+            'name' => 'CSS',
+            'slug' => 'css'
+        ]);
+        Category::create([
+            'name' => 'Laravel',
+            'slug' => 'laravel'
+        ]);
+        Category::create([
+            'name' => 'Symfony',
+            'slug' => 'symfony'
+        ]);
+        Category::create([
+            'name' => 'Angular',
+            'slug' => 'angular'
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Post::factory(50)->create();
+        Comment::factory(10)->create(['post_id' => 1]);
     }
 }
